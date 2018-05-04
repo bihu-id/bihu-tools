@@ -9,12 +9,12 @@ block_hash = bytes.fromhex('0000000000000000003729bfa376e4148ee0643ce834053d885a
 total_lottery = 100
 
 
-def lucky_num_from_block_hash(h):
+def lucky_num_from_block_hash(blk_hash):
     hash_names = ['md5', 'md4', 'whirlpool', 'RIPEMD160', 'DSA', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512']
     print(str(len(hash_names)) + ": " + str(hash_names))
 
     repeat = 10000 * 4000 # about 10 min ，2.9 GHz Intel Core i5
-    r = h
+    r = blk_hash
     for i in range(repeat):
         if i%10000 == 0:
             print(str(i) + ":...")
