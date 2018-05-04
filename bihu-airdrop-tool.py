@@ -43,7 +43,7 @@ def compute_airdrop_reward():
     r = {}
     lucky_num = lucky_num_from_block_hash(block_hash)
 
-    for lottery_id in range(total_lottery):
+    for lottery_id in range(1, total_lottery + 1):
         s = score_for_each_lottery(lucky_num, lottery_id)
         r[lottery_id] = s
     return r
