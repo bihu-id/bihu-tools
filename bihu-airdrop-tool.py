@@ -54,3 +54,4 @@ reward_sorted = OrderedDict(sorted(reward_map.items(), key=lambda t: t[1], rever
 print("=======================Rewards================================")
 for item in reward_sorted:
     print(str(item) + ": " + str(reward_sorted[item]))
+    
