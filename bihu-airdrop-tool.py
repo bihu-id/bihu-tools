@@ -3,10 +3,12 @@
 import hashlib
 from collections import OrderedDict
 
+airdrop_prefix = 'AA'
 # block hash
 block_hash = bytes.fromhex('0000000000000000003729bfa376e4148ee0643ce834053d885af5699440d6d3')
 # total lottery num
-total_lottery = 100000
+total_lottery = 100
+
 
 
 def lucky_num_from_block_hash(h):
@@ -41,15 +43,27 @@ def compute_airdrop_reward():
     r = {}
     lucky_num = lucky_num_from_block_hash(block_hash)
 
-    for lottery_id in range(total_lottery):
+    for lottery_id in range(1, total_lottery + 1):
         s = score_for_each_lottery(lucky_num, lottery_id)
         r[lottery_id] = s
     return r
 
 
+def lottery_format(n):
+    return airdrop_prefix + '-' + str(n).zfill(7)
+
+
+def dump_rewards_to_file(rewards):
+    c = 1
+    f = open('rewards.txt', 'w')
+    for r in rewards:
+        f.write(str(c) + ',' + lottery_format(r) + ',' + str(rewards[r]) + '\n')
+        c += 1
+
+    f.close()
 
 reward_map = compute_airdrop_reward()
 reward_sorted = OrderedDict(sorted(reward_map.items(), key=lambda t: t[1], reverse = True))
 print("=======================Rewards================================")
-for item in reward_sorted:
-    print(str(item) + ": " + str(reward_map[item]))
+
+dump_rewards_to_file(reward_sorted)
