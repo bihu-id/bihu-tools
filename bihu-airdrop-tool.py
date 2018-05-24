@@ -7,7 +7,7 @@ airdrop_prefix = 'AA'
 # block hash
 block_hash = bytes.fromhex('0000000000000000003729bfa376e4148ee0643ce834053d885af5699440d6d3')
 # total lottery num
-total_lottery = 100
+total_lottery = 1000
 
 
 
