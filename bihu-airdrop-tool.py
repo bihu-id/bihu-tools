@@ -12,7 +12,7 @@ total_lottery = 1000
 
 
 def lucky_num_from_block_hash(h):
-    hash_names = ['md5', 'md4', 'whirlpool', 'RIPEMD160', 'DSA', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512']
+    hash_names = ['md5', 'md4', 'whirlpool', 'RIPEMD160', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512']
     print(str(len(hash_names)) + ": " + str(hash_names))
 
     repeat = 10000 * 400 * 20
